@@ -161,10 +161,11 @@ void testList() {
   cout << endl << endl;
 }
 
-void testAVLTree() {
+int testAVLTree() {
   cout << "Test AVLTree\n";
   cout << "------------\n";
   
+  int result = 0;
   AVLTree<int> tree;
   
   tree.insert(10);
@@ -189,12 +190,15 @@ void testAVLTree() {
   cout << "Postorder traversal: ";
   tree.traversePostOrder([](const int& value) { cout << value << " "; });
   cout << endl << endl;
+  
+  return result;
 }
 
 int main() {
-  testStack();
-  testQueue();
-  testList();
-  testAVLTree();
-  return 0;
+  int result = 0;
+  result += testStack();
+  result += testQueue();
+  result += testList();
+  result += testAVLTree();
+  return result;
 }
