@@ -240,5 +240,6 @@ int main() {
   result += testQueue();
   result += testList();
   result += testAVLTree();
+  cout << "Failed Tests " << result << endl;
   return result;
 }
