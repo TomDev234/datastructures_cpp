@@ -12,11 +12,11 @@ LIB_DIR := lib
 BIN_DIR := bin
 TEST_DIR := test
 
-# Library
+# Library is currently empty
 LIB_NAME := datastructures
-LIB_SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
-LIB_OBJECTS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(LIB_SOURCES))
-LIB_TARGET := $(LIB_DIR)/lib$(LIB_NAME).a
+#LIB_SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+#LIB_OBJECTS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(LIB_SOURCES))
+#LIB_TARGET := $(LIB_DIR)/lib$(LIB_NAME).a
 
 # Test program
 TEST_NAME := test_datastructures
