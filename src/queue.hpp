@@ -58,8 +58,18 @@ public:
     return size == 0;
   }
   
-  int getSize() const{
+  int getSize() const {
     return size;
+  }
+  
+  int getNodeCount() const {
+    int count = 0;
+    shared_ptr<QueueNode>node = tail;
+    while(node != nullptr) {
+      count++;
+      node = node->prev;
+    }
+    return count;
   }
 };
 

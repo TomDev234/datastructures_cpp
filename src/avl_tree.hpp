@@ -144,6 +144,12 @@ class AVLTree {
     return node;
   }
   
+  int getNodeCount(shared_ptr<Node>& node) {
+    if (node == nullptr)
+      return 0;
+    return 1 + getNodeCount(node->left) + getNodeCount(node->right);
+  }
+
   void traversePreOrder(const shared_ptr<Node>& node, function<void(const T&)> callback) {
     if (node) {
       callback(node->data);
@@ -177,6 +183,11 @@ class AVLTree {
   }
   
 public:
+  
+  int getNodeCount() {
+    return getNodeCount(root);
+  }
+
   void traversePreOrder(function<void(const T&)> callback) {
     traversePreOrder(root, callback);
   }

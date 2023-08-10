@@ -12,10 +12,6 @@
 		E2C9036A2A83E60700412C32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E24094642A8122F200990B3D /* main.cpp */; };
 		E2C9036B2A83E79C00412C32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E24094642A8122F200990B3D /* main.cpp */; };
 		E2C9036E2A83E7B400412C32 /* libdatastructures_cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E24094532A81227100990B3D /* libdatastructures_cpp.a */; };
-		E2C903722A83F52800412C32 /* stack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2C903712A83F52800412C32 /* stack.cpp */; };
-		E2C903742A83F53A00412C32 /* queue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2C903732A83F53A00412C32 /* queue.cpp */; };
-		E2C903762A83F54F00412C32 /* list.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2C903752A83F54F00412C32 /* list.cpp */; };
-		E2C903782A83F56000412C32 /* avl_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2C903772A83F56000412C32 /* avl_tree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,10 +45,6 @@
 		E24094702A814DEA00990B3D /* list.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = list.hpp; sourceTree = "<group>"; };
 		E24094792A81552D00990B3D /* datastructures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = datastructures.hpp; sourceTree = "<group>"; };
 		E251D5032A82F3F700BD8553 /* avl_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = avl_tree.hpp; sourceTree = "<group>"; };
-		E2C903712A83F52800412C32 /* stack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stack.cpp; sourceTree = "<group>"; };
-		E2C903732A83F53A00412C32 /* queue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = queue.cpp; sourceTree = "<group>"; };
-		E2C903752A83F54F00412C32 /* list.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = list.cpp; sourceTree = "<group>"; };
-		E2C903772A83F56000412C32 /* avl_tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = avl_tree.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +96,10 @@
 			isa = PBXGroup;
 			children = (
 				E24094792A81552D00990B3D /* datastructures.hpp */,
-				E2C903772A83F56000412C32 /* avl_tree.cpp */,
 				E251D5032A82F3F700BD8553 /* avl_tree.hpp */,
 				E24094702A814DEA00990B3D /* list.hpp */,
-				E2C903752A83F54F00412C32 /* list.cpp */,
 				E240946F2A814DDC00990B3D /* queue.hpp */,
-				E2C903732A83F53A00412C32 /* queue.cpp */,
 				E240945B2A8122B900990B3D /* stack.hpp */,
-				E2C903712A83F52800412C32 /* stack.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -215,11 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C903782A83F56000412C32 /* avl_tree.cpp in Sources */,
-				E2C903722A83F52800412C32 /* stack.cpp in Sources */,
-				E2C903762A83F54F00412C32 /* list.cpp in Sources */,
 				E2C9036A2A83E60700412C32 /* main.cpp in Sources */,
-				E2C903742A83F53A00412C32 /* queue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

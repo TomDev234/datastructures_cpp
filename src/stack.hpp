@@ -54,8 +54,18 @@ public:
     return size == 0;
   }
   
-  int getSize() const{
+  int getSize() const {
     return size;
+  }
+  
+  int getNodeCount() const {
+    shared_ptr<StackNode>node = top;
+    int count = 0;
+    while(node != nullptr) {
+      count++;
+      node = node->next;
+    }
+    return count;
   }
 };
 

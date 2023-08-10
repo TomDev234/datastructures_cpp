@@ -55,11 +55,12 @@ public:
   }
 };
 
-void testStack () {
+int testStack () {
   cout << "Stack Test\n";
   cout << "----------\n";
 
   const int numberOfNodes = 10;
+  int result = 0;
   Stack<shared_ptr<NumberNode>> stack;
 
   for (int i = 0; i < numberOfNodes; i++) {
@@ -74,21 +75,26 @@ void testStack () {
   }
 
   cout << "Stack Size = " << stack.getSize() << endl;
+  if (stack.getNodeCount() != numberOfNodes) {
+    cout << "Wrong Node Count Error!\n";
+    result = 1;
+  }
 
-  if (stack.getSize() != numberOfNodes)
-    cout << "Stack Size wrong Error!\n";
-  
   cout << "Popped Elements:";
   while (!stack.isEmpty()) {
     shared_ptr<NumberNode>node = stack.pop();
     cout << *node << " ";
   }
   cout << endl << endl;
+  
+  return result;
 }
 
-void testQueue() {
+int testQueue() {
   cout << "Queue Test\n";
   cout << "----------\n";
+  
+  int result = 0;
   
   Queue<shared_ptr<NumberNode>> queue;
   queue.enqueue(make_shared<IntNode>(1));
@@ -98,6 +104,11 @@ void testQueue() {
   queue.enqueue(make_unique<FloatNode>(20.2f));
   queue.enqueue(make_shared<FloatNode>(30.3f));
   
+  if (queue.getNodeCount() != 6) {
+    cout << "Wrong Node Count Error!\n";
+    result = 1;
+  }
+  
   cout << "Queue Size=" << queue.getSize() << endl;
   cout << "Head Element:" << queue.peek()->toString() << endl;
   
@@ -106,12 +117,16 @@ void testQueue() {
     cout << *node << " ";
   }
   cout << endl << endl;
+  
+  return result;
 }
 
-void testList() {
+int testList() {
   cout << "List Test\n";
   cout << "---------\n";
 
+  int result = 0;
+  
   List<shared_ptr<NumberNode>> list;
   
   list.addHead(make_shared<IntNode>(1));
@@ -127,6 +142,11 @@ void testList() {
   list.addTail(make_shared<IntNode>(25));
   list.addTail(make_shared<IntNode>(26));
   
+  if (list.getNodeCount() != 12) {
+    cout << "Wrong Node Count Error!\n";
+    result = 1;
+  }
+  
   cout << "List Size=" << list.getSize() << endl;
   
   cout << "List Elements:";
@@ -141,6 +161,11 @@ void testList() {
   node = list.removeTail();
   cout << "Remove Tail:" << node->toString() << endl;
 
+  if(list.getNodeCount() != 10) {
+    cout << "Wrong Node Count Error!\n";
+    result = 1;
+  }
+  
   cout << "Forward Iteration:\n";
   for (auto it = list.begin(); it != list.end(); ++it) {
     cout << **it << " ";
@@ -159,6 +184,8 @@ void testList() {
     cout << *node << " ";
   });
   cout << endl << endl;
+  
+  return result;
 }
 
 int testAVLTree() {
@@ -174,22 +201,35 @@ int testAVLTree() {
   tree.insert(40);
   tree.insert(50);
   tree.insert(25);
-
+  
+  int nodeCount = tree.getNodeCount();
+  if (nodeCount != 6) {
+    cout << "Wrong Number of Nodes Error!\n";
+    result = 1;
+  }
+    
   cout << "Preorder traversal : ";
   tree.traversePreOrder([](const int& value) { cout << value << " "; });
   cout << endl;
-
-  //tree.remove(30);
   
   cout << "Inorder traversal  : ";
   tree.traverseInOrder([](const int& value) { cout << value << " "; });
   cout << endl;
 
-  //tree.remove(40);
-
   cout << "Postorder traversal: ";
   tree.traversePostOrder([](const int& value) { cout << value << " "; });
-  cout << endl << endl;
+  cout << endl;
+  
+  tree.remove(30);
+  tree.remove(40);
+  
+  nodeCount = tree.getNodeCount();
+  if (nodeCount != 4) {
+    cout << "Wrong Number of Nodes Error!\n";
+    result = 1;
+  }
+  
+  cout << endl;
   
   return result;
 }

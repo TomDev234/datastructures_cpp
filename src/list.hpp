@@ -78,6 +78,16 @@ public:
     return size;
   }
   
+  int getNodeCount() {
+    int count = 0;
+    shared_ptr<ListNode>node = headGuard->next;
+    while(node != tailGuard) {
+      count++;
+      node = node->next;
+    }
+    return count;
+  }
+  
   bool isEmpty() {
     return size == 0;
   }
