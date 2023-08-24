@@ -54,6 +54,20 @@ public:
     size++;
   }
   
+  void addData(T data) {
+    shared_ptr<ListNode>listNode = headGuard->next;
+    while(listNode != tailGuard && listNode->data < data)
+      listNode = listNode->next;
+    if(listNode != tailGuard) {
+      shared_ptr<ListNode>newNode = make_shared<ListNode>;
+      newNode->data = data;
+      newNode->next = listNode;
+      newNode->prev = listNode->prev;
+      listNode->prev->next = newNode;
+      listNode->prev = newNode;
+    }
+  }
+  
   T removeHead() {
     if(isEmpty())
       throw runtime_error("List is empty Exception! Cannot perform removeHead.");
@@ -72,6 +86,18 @@ public:
     tailGuard->prev = tailGuard->prev->prev;
     size--;
     return listNode->data;
+  }
+  
+  void removeData(T data) {
+    if(isEmpty())
+      throw runtime_error("List is empty Exception! Cannot perform removeData.");
+    shared_ptr<ListNode>listNode = headGuard->next;
+    while(listNode != tailGuard && listNode.data != data)
+      listNode = listNode->next;
+    if(listNode != tailGuard) {
+      listNode->next->prev = listNode->prev;
+      listNode->prev->next = listNode->next;
+    }
   }
   
   int getSize() {
@@ -105,12 +131,89 @@ public:
     tailGuard->prev->next = tailGuard; // Update the next pointer of the new tail node
   }
   
-  void traverse(const function<void(T& data)> callback) {
+  void traverse(const function<void(T& data)>callback) {
     shared_ptr<ListNode>listNode = headGuard->next;
     while(listNode != tailGuard) {
       callback(listNode->data);
       listNode = listNode->next;
     }
+  }
+  
+  // Merge Sort
+
+  shared_ptr<ListNode>findMiddle() {
+    shared_ptr<ListNode> slow = headGuard;
+    shared_ptr<ListNode> fast = headGuard;
+    while (fast != tailGuard && fast->next != tailGuard) {
+      slow = slow->next;
+      fast = fast->next->next;
+    }
+    return slow;
+  }
+  
+  void merge(List& left, List& right) {
+    shared_ptr<ListNode>leftCurrent = left.headGuard->next;
+    shared_ptr<ListNode>rightCurrent = right.headGuard->next;
+    shared_ptr<ListNode>mergeCurrent = headGuard;
+    
+    while (leftCurrent != left.tailGuard && rightCurrent != right.tailGuard) {
+      if (leftCurrent->data <= rightCurrent->data) {
+        mergeCurrent->next = leftCurrent;
+        leftCurrent->prev = mergeCurrent;
+        leftCurrent = leftCurrent->next;
+      }
+      else {
+        mergeCurrent->next = rightCurrent;
+        rightCurrent->prev = mergeCurrent;
+        rightCurrent = rightCurrent->next;
+      }
+      mergeCurrent = mergeCurrent->next;
+    }
+    
+    while (leftCurrent != left.tailGuard) {
+      mergeCurrent->next = leftCurrent;
+      leftCurrent->prev = mergeCurrent;
+      leftCurrent = leftCurrent->next;
+      mergeCurrent = mergeCurrent->next;
+    }
+    
+    while (rightCurrent != right.tailGuard) {
+      mergeCurrent->next = rightCurrent;
+      rightCurrent->prev = mergeCurrent;
+      rightCurrent = rightCurrent->next;
+      mergeCurrent = mergeCurrent->next;
+    }
+    
+    mergeCurrent->next = tailGuard;
+    tailGuard->prev = mergeCurrent;
+  }
+  
+  void mergeSort() {
+    if (headGuard->next == tailGuard || headGuard->next->next == tailGuard) {
+      return;
+    }
+    
+    List leftHalf;
+    List rightHalf;
+    
+    shared_ptr<ListNode> middle = findMiddle();
+    
+    // Copy data from original list to leftHalf
+    shared_ptr<ListNode> current = headGuard->next;
+    while (current != middle->next) {
+      leftHalf.addTail(current->data);
+      current = current->next;
+    }
+    
+    // Copy data from original list to rightHalf
+    while (current != tailGuard) {
+      rightHalf.addTail(current->data);
+      current = current->next;
+    }
+    
+    leftHalf.mergeSort();
+    rightHalf.mergeSort();
+    merge(leftHalf, rightHalf);
   }
   
   class Iterator {
@@ -155,7 +258,7 @@ public:
       return current->data;
     }
     
-    ReverseIterator& operator++() {
+    ReverseIterator& operator--() {
       if (current) {
         current = current->prev;
       }

@@ -173,7 +173,7 @@ int testList() {
   cout << endl;
 
   cout << "Backward Iteration:\n";
-  for (auto rit = list.rbegin(); rit != list.rend(); ++rit) {
+  for (auto rit = list.rbegin(); rit != list.rend(); --rit) {
     cout << **rit << " ";
   }
   cout << endl;
@@ -183,8 +183,16 @@ int testList() {
   list.traverse([](shared_ptr<NumberNode>node) {
     cout << *node << " ";
   });
-  cout << endl << endl;
+  cout << endl;
   
+  list.mergeSort();
+  
+  cout << "Sorted List: ";
+  for (auto it = list.begin(); it != list.end(); ++it) {
+    cout << **it << " ";
+  }
+  cout << endl << endl;
+
   return result;
 }
 
@@ -209,15 +217,21 @@ int testAVLTree() {
   }
     
   cout << "Preorder traversal : ";
-  tree.traversePreOrder([](const int& value) { cout << value << " "; });
+  tree.traversePreOrder([](const int& value) {
+    cout << value << " ";
+  });
   cout << endl;
   
   cout << "Inorder traversal  : ";
-  tree.traverseInOrder([](const int& value) { cout << value << " "; });
+  tree.traverseInOrder([](const int& value) {
+    cout << value << " ";
+  });
   cout << endl;
 
   cout << "Postorder traversal: ";
-  tree.traversePostOrder([](const int& value) { cout << value << " "; });
+  tree.traversePostOrder([](const int& value) {
+    cout << value << " ";
+  });
   cout << endl;
   
   tree.remove(30);

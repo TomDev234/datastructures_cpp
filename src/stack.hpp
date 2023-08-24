@@ -29,7 +29,7 @@ public:
   Stack() : top(nullptr), size(0) {}
   
   void push(const T& data) {
-    shared_ptr<StackNode> newNode = make_unique<StackNode>(data);
+    shared_ptr<StackNode> newNode = make_shared<StackNode>(data);
     newNode->next = top;
     top = newNode;
     size++;

@@ -22,7 +22,7 @@ class AVLTree {
     int height;
     shared_ptr<Node> left;
     shared_ptr<Node> right;
-    Node(const T& value) : data(value), height(1) {}
+    Node(const T& data) : data(data), height(1) {}
   };
   
   shared_ptr<Node> root;
@@ -171,14 +171,6 @@ class AVLTree {
       traversePostOrder(node->left, callback);
       traversePostOrder(node->right, callback);
       callback(node->data);
-    }
-  }
-  
-  void inorderTraversal(const shared_ptr<Node>& node) {
-    if (node) {
-      inorderTraversal(node->left);
-      cout << node->data << " ";
-      inorderTraversal(node->right);
     }
   }
   
