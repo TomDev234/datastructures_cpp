@@ -9,6 +9,7 @@
 #define datastructures_h
 
 #include "avl_tree.hpp"
+#include "heap.hpp"
 #include "list.hpp"
 #include "queue.hpp"
 #include "stack.hpp"

@@ -215,6 +215,23 @@ public:
     rightHalf.mergeSort();
     merge(leftHalf, rightHalf);
   }
+    
+  bool isSorted() {
+    shared_ptr<ListNode>head = headGuard->next;
+    if (head == tailGuard || head->next == tailGuard) {
+      // If the list is empty or has only one element, it's considered sorted
+      return true;
+    }
+    shared_ptr<ListNode>current = head;
+    while (current->next != tailGuard) {
+      if (current->data > current->next->data) {
+        // If a value is greater than its next value, the list is not sorted
+        return false;
+      }
+      current = current->next;
+    }
+    return true;
+  }
   
   class Iterator {
   private:

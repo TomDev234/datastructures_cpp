@@ -23,6 +23,7 @@ public:
   friend ostream& operator << (ostream& stream, const NumberNode& node) {
     return node.print(stream);
   }
+  virtual bool greaterThan(const NumberNode& node) const = 0;
 };
 
 class IntNode : public NumberNode {
@@ -38,6 +39,15 @@ public:
     stream << toString();
     return stream;
   }
+  bool greaterThan(const NumberNode& other) const override {
+    bool result;
+    const IntNode* otherInt = dynamic_cast<const IntNode*>(&other);
+    if (otherInt != nullptr)
+      result = i > otherInt->i;
+    else
+      result = false;
+    return result;
+  }
 };
 
 class FloatNode : public NumberNode {
@@ -52,6 +62,15 @@ public:
   ostream& print(ostream& stream) const override {
     stream << toString();
     return stream;
+  }
+  bool greaterThan(const NumberNode& other) const override {
+    bool result;
+    const FloatNode* otherFloat = dynamic_cast<const FloatNode*>(&other);
+    if(otherFloat != nullptr)
+      result = f > otherFloat->f;
+    else
+      result = false;
+    return result;
   }
 };
 
@@ -137,11 +156,11 @@ int testList() {
   list.addTail(make_shared<IntNode>(20));
   list.addTail(make_shared<IntNode>(21));
   list.addTail(make_shared<FloatNode>(22.2f));
-  list.addTail(make_shared<IntNode>(23));
-  list.addTail(make_shared<IntNode>(24));
-  list.addTail(make_shared<IntNode>(25));
   list.addTail(make_shared<IntNode>(26));
-  
+  list.addTail(make_shared<IntNode>(23));
+  list.addTail(make_shared<IntNode>(25));
+  list.addTail(make_shared<IntNode>(24));
+
   if (list.getNodeCount() != 12) {
     cout << "Wrong Node Count Error!\n";
     result = 1;
@@ -166,13 +185,13 @@ int testList() {
     result = 1;
   }
   
-  cout << "Forward Iteration:\n";
+  cout << "Forward Iteration:";
   for (auto it = list.begin(); it != list.end(); ++it) {
     cout << **it << " ";
   }
   cout << endl;
 
-  cout << "Backward Iteration:\n";
+  cout << "Backward Iteration:";
   for (auto rit = list.rbegin(); rit != list.rend(); --rit) {
     cout << **rit << " ";
   }
@@ -188,11 +207,73 @@ int testList() {
   list.mergeSort();
   
   cout << "Sorted List: ";
-  for (auto it = list.begin(); it != list.end(); ++it) {
-    cout << **it << " ";
-  }
-  cout << endl << endl;
+  list.traverse([](shared_ptr<NumberNode> data) {
+    cout << data->toString() << " ";
+  });
+  cout << endl;
+  
+  cout << "List Merge Sort does not work correctly!" << endl;
 
+  if (!list.isSorted()) {
+    cout << "List not sorted Error!\n";
+    result = 1;
+  }
+  else
+    cout << "List is sorted.\n";
+  
+  cout << endl;
+  
+  return result;
+}
+
+int testHeap() {
+  cout << "Heap Test\n";
+  cout << "---------\n";
+
+  Heap<int, MaximumComparator> maximumHeap;
+  Heap<int, MinimumComparator> minimumHeap;
+  
+  int result = 0;
+  array<int,5>randomData = {3,1,4,2,5};
+  array<int,5>maximumData = {5,4,3,2,1};
+  array<int,5>minimumData = {1,2,3,4,5};
+  
+  for (int i = 0; i < randomData.size(); i++)
+    maximumHeap.insert(randomData[i]);
+  
+  for (int i = 0; i < randomData.size(); i++)
+    minimumHeap.insert(randomData[i]);
+  
+  std::cout << "Maximum Heap Elements: ";
+  int count = 0;
+  while (!maximumHeap.isEmpty()) {
+    int value = maximumHeap.pop();
+    if (value != maximumData.at(count)) {
+      result = 1;
+      break;
+    }
+    count++;
+    std::cout << value << " ";
+  }
+  std::cout << std::endl;
+  
+  std::cout << "Minimum Heap Elements: ";
+  count = 0;
+  while (!minimumHeap.isEmpty()) {
+    int value = minimumHeap.pop();
+    if (value != minimumData.at(count)) {
+      result = 1;
+      break;
+    }
+    count++;
+    std::cout << value << " ";
+  }
+  
+  if (result == 0)
+    std::cout << std::endl << endl;
+  else
+    cout << "\nHeap Test failed!\n\n";
+  
   return result;
 }
 
@@ -253,6 +334,7 @@ int main() {
   result += testStack();
   result += testQueue();
   result += testList();
+  result += testHeap();
   result += testAVLTree();
   cout << "Failed Tests " << result << endl;
   return result;
