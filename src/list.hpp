@@ -139,7 +139,7 @@ public:
     }
   }
   
-  // Merge Sort
+  // --- Merge Sort
 
   shared_ptr<ListNode>findMiddle() {
     shared_ptr<ListNode> slow = headGuard;
@@ -150,14 +150,14 @@ public:
     }
     return slow;
   }
-  
+
   void merge(List& left, List& right) {
     shared_ptr<ListNode>leftCurrent = left.headGuard->next;
     shared_ptr<ListNode>rightCurrent = right.headGuard->next;
     shared_ptr<ListNode>mergeCurrent = headGuard;
-    
+
     while (leftCurrent != left.tailGuard && rightCurrent != right.tailGuard) {
-      if (leftCurrent->data <= rightCurrent->data) {
+      if (*leftCurrent->data <= *rightCurrent->data) {
         mergeCurrent->next = leftCurrent;
         leftCurrent->prev = mergeCurrent;
         leftCurrent = leftCurrent->next;
@@ -169,53 +169,55 @@ public:
       }
       mergeCurrent = mergeCurrent->next;
     }
-    
+
     while (leftCurrent != left.tailGuard) {
       mergeCurrent->next = leftCurrent;
       leftCurrent->prev = mergeCurrent;
       leftCurrent = leftCurrent->next;
       mergeCurrent = mergeCurrent->next;
     }
-    
+
     while (rightCurrent != right.tailGuard) {
       mergeCurrent->next = rightCurrent;
       rightCurrent->prev = mergeCurrent;
       rightCurrent = rightCurrent->next;
       mergeCurrent = mergeCurrent->next;
     }
-    
+
     mergeCurrent->next = tailGuard;
     tailGuard->prev = mergeCurrent;
   }
-  
+
   void mergeSort() {
     if (headGuard->next == tailGuard || headGuard->next->next == tailGuard) {
       return;
     }
-    
+
     List leftHalf;
     List rightHalf;
-    
+
     shared_ptr<ListNode> middle = findMiddle();
-    
+
     // Copy data from original list to leftHalf
     shared_ptr<ListNode> current = headGuard->next;
     while (current != middle->next) {
       leftHalf.addTail(current->data);
       current = current->next;
     }
-    
+
     // Copy data from original list to rightHalf
     while (current != tailGuard) {
       rightHalf.addTail(current->data);
       current = current->next;
     }
-    
+
     leftHalf.mergeSort();
     rightHalf.mergeSort();
     merge(leftHalf, rightHalf);
   }
-    
+  
+  // ---
+  
   bool isSorted() {
     shared_ptr<ListNode>head = headGuard->next;
     if (head == tailGuard || head->next == tailGuard) {
@@ -224,7 +226,7 @@ public:
     }
     shared_ptr<ListNode>current = head;
     while (current->next != tailGuard) {
-      if (current->data > current->next->data) {
+      if (*current->data > *current->next->data) {
         // If a value is greater than its next value, the list is not sorted
         return false;
       }

@@ -11,28 +11,30 @@
 #include <iostream>
 #include <memory>
 
+using namespace std;
+
 template <typename T, typename Comparator>
 
-struct Node {
+struct HeapNode {
   T data;
-  std::shared_ptr<Node<T, Comparator>> left;
-  std::shared_ptr<Node<T, Comparator>> right;
-  Node(T val) : data(val), left(nullptr), right(nullptr) {}
+  std::shared_ptr<HeapNode<T, Comparator>> left;
+  std::shared_ptr<HeapNode<T, Comparator>> right;
+  HeapNode(T val) : data(val), left(nullptr), right(nullptr) {}
 };
 
 template <typename T, typename Comparator>
 
 class Heap {
 private:
-  std::shared_ptr<Node<T, Comparator>> root;
+  std::shared_ptr<HeapNode<T, Comparator>> root;
   int size;
   
 public:
   Heap() : root(nullptr), size(0) {}
   
   void insert(T val) {
-    std::shared_ptr<Node<T, Comparator>> newNode = std::make_shared<Node<T, Comparator>>(val);
-    root = merge(root, newNode);
+    std::shared_ptr<HeapNode<T, Comparator>> newHeapNode = std::make_shared<HeapNode<T, Comparator>>(val);
+    root = merge(root, newHeapNode);
     size++;
   }
   
@@ -60,7 +62,7 @@ public:
   }
   
 private:
-  std::shared_ptr<Node<T, Comparator>> merge(std::shared_ptr<Node<T, Comparator>> a, std::shared_ptr<Node<T, Comparator>> b) {
+  std::shared_ptr<HeapNode<T, Comparator>> merge(std::shared_ptr<HeapNode<T, Comparator>> a, std::shared_ptr<HeapNode<T, Comparator>> b) {
     if (!a) return b;
     if (!b) return a;
     if (Comparator()(a, b))
@@ -73,14 +75,14 @@ private:
 
 struct MaximumComparator {
   template <typename T>
-  bool operator()(const std::shared_ptr<Node<T, MaximumComparator>>& a, const std::shared_ptr<Node<T, MaximumComparator>>& b) {
+  bool operator()(const std::shared_ptr<HeapNode<T, MaximumComparator>>& a, const std::shared_ptr<HeapNode<T, MaximumComparator>>& b) {
     return a->data < b->data;
   }
 };
 
 struct MinimumComparator {
   template <typename T>
-  bool operator()(const std::shared_ptr<Node<T, MinimumComparator>>& a, const std::shared_ptr<Node<T, MinimumComparator>>& b) {
+  bool operator()(const std::shared_ptr<HeapNode<T, MinimumComparator>>& a, const std::shared_ptr<HeapNode<T, MinimumComparator>>& b) {
     return a->data > b->data;
   }
 };

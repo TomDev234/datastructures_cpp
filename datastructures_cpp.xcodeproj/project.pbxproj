@@ -9,6 +9,25 @@
 /* Begin PBXBuildFile section */
 		E240945D2A8122B900990B3D /* stack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E240945B2A8122B900990B3D /* stack.hpp */; };
 		E251D5052A82F3F700BD8553 /* avl_tree.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E251D5032A82F3F700BD8553 /* avl_tree.hpp */; };
+		E25DC50B2AA544790092CC6F /* NumberNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5092AA544790092CC6F /* NumberNode.cpp */; };
+		E25DC50C2AA544790092CC6F /* NumberNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5092AA544790092CC6F /* NumberNode.cpp */; };
+		E25DC50D2AA544790092CC6F /* NumberNode.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC50A2AA544790092CC6F /* NumberNode.hpp */; };
+		E25DC5102AA5449A0092CC6F /* TestStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC50E2AA5449A0092CC6F /* TestStack.cpp */; };
+		E25DC5112AA5449A0092CC6F /* TestStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC50E2AA5449A0092CC6F /* TestStack.cpp */; };
+		E25DC5122AA5449A0092CC6F /* TestStack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC50F2AA5449A0092CC6F /* TestStack.hpp */; };
+		E25DC5152AA544AE0092CC6F /* TestQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5132AA544AE0092CC6F /* TestQueue.cpp */; };
+		E25DC5162AA544AE0092CC6F /* TestQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5132AA544AE0092CC6F /* TestQueue.cpp */; };
+		E25DC5172AA544AE0092CC6F /* TestQueue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC5142AA544AE0092CC6F /* TestQueue.hpp */; };
+		E25DC51A2AA544C00092CC6F /* TestList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5182AA544C00092CC6F /* TestList.cpp */; };
+		E25DC51B2AA544C00092CC6F /* TestList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5182AA544C00092CC6F /* TestList.cpp */; };
+		E25DC51C2AA544C00092CC6F /* TestList.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC5192AA544C00092CC6F /* TestList.hpp */; };
+		E25DC51F2AA544D10092CC6F /* TestHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC51D2AA544D10092CC6F /* TestHeap.cpp */; };
+		E25DC5202AA544D10092CC6F /* TestHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC51D2AA544D10092CC6F /* TestHeap.cpp */; };
+		E25DC5212AA544D10092CC6F /* TestHeap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC51E2AA544D10092CC6F /* TestHeap.hpp */; };
+		E25DC5242AA544E30092CC6F /* TestAVLTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5222AA544E30092CC6F /* TestAVLTree.cpp */; };
+		E25DC5252AA544E30092CC6F /* TestAVLTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E25DC5222AA544E30092CC6F /* TestAVLTree.cpp */; };
+		E25DC5262AA544E30092CC6F /* TestAVLTree.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E25DC5232AA544E30092CC6F /* TestAVLTree.hpp */; };
+		E292FD032A9D4C27004CD38E /* heap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E292FD012A9D4C27004CD38E /* heap.hpp */; };
 		E2C9036A2A83E60700412C32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E24094642A8122F200990B3D /* main.cpp */; };
 		E2C9036B2A83E79C00412C32 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E24094642A8122F200990B3D /* main.cpp */; };
 		E2C9036E2A83E7B400412C32 /* libdatastructures_cpp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E24094532A81227100990B3D /* libdatastructures_cpp.a */; };
@@ -45,6 +64,19 @@
 		E24094702A814DEA00990B3D /* list.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = list.hpp; sourceTree = "<group>"; };
 		E24094792A81552D00990B3D /* datastructures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = datastructures.hpp; sourceTree = "<group>"; };
 		E251D5032A82F3F700BD8553 /* avl_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = avl_tree.hpp; sourceTree = "<group>"; };
+		E25DC5092AA544790092CC6F /* NumberNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NumberNode.cpp; sourceTree = "<group>"; };
+		E25DC50A2AA544790092CC6F /* NumberNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NumberNode.hpp; sourceTree = "<group>"; };
+		E25DC50E2AA5449A0092CC6F /* TestStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestStack.cpp; sourceTree = "<group>"; };
+		E25DC50F2AA5449A0092CC6F /* TestStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestStack.hpp; sourceTree = "<group>"; };
+		E25DC5132AA544AE0092CC6F /* TestQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestQueue.cpp; sourceTree = "<group>"; };
+		E25DC5142AA544AE0092CC6F /* TestQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestQueue.hpp; sourceTree = "<group>"; };
+		E25DC5182AA544C00092CC6F /* TestList.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestList.cpp; sourceTree = "<group>"; };
+		E25DC5192AA544C00092CC6F /* TestList.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestList.hpp; sourceTree = "<group>"; };
+		E25DC51D2AA544D10092CC6F /* TestHeap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestHeap.cpp; sourceTree = "<group>"; };
+		E25DC51E2AA544D10092CC6F /* TestHeap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestHeap.hpp; sourceTree = "<group>"; };
+		E25DC5222AA544E30092CC6F /* TestAVLTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestAVLTree.cpp; sourceTree = "<group>"; };
+		E25DC5232AA544E30092CC6F /* TestAVLTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestAVLTree.hpp; sourceTree = "<group>"; };
+		E292FD012A9D4C27004CD38E /* heap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = heap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +129,7 @@
 			children = (
 				E24094792A81552D00990B3D /* datastructures.hpp */,
 				E251D5032A82F3F700BD8553 /* avl_tree.hpp */,
+				E292FD012A9D4C27004CD38E /* heap.hpp */,
 				E24094702A814DEA00990B3D /* list.hpp */,
 				E240946F2A814DDC00990B3D /* queue.hpp */,
 				E240945B2A8122B900990B3D /* stack.hpp */,
@@ -108,6 +141,18 @@
 			isa = PBXGroup;
 			children = (
 				E24094642A8122F200990B3D /* main.cpp */,
+				E25DC5092AA544790092CC6F /* NumberNode.cpp */,
+				E25DC50A2AA544790092CC6F /* NumberNode.hpp */,
+				E25DC50E2AA5449A0092CC6F /* TestStack.cpp */,
+				E25DC50F2AA5449A0092CC6F /* TestStack.hpp */,
+				E25DC5132AA544AE0092CC6F /* TestQueue.cpp */,
+				E25DC5142AA544AE0092CC6F /* TestQueue.hpp */,
+				E25DC5182AA544C00092CC6F /* TestList.cpp */,
+				E25DC5192AA544C00092CC6F /* TestList.hpp */,
+				E25DC51D2AA544D10092CC6F /* TestHeap.cpp */,
+				E25DC51E2AA544D10092CC6F /* TestHeap.hpp */,
+				E25DC5222AA544E30092CC6F /* TestAVLTree.cpp */,
+				E25DC5232AA544E30092CC6F /* TestAVLTree.hpp */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -119,8 +164,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25DC5212AA544D10092CC6F /* TestHeap.hpp in Headers */,
+				E25DC51C2AA544C00092CC6F /* TestList.hpp in Headers */,
+				E292FD032A9D4C27004CD38E /* heap.hpp in Headers */,
 				E251D5052A82F3F700BD8553 /* avl_tree.hpp in Headers */,
+				E25DC5262AA544E30092CC6F /* TestAVLTree.hpp in Headers */,
+				E25DC5122AA5449A0092CC6F /* TestStack.hpp in Headers */,
 				E240945D2A8122B900990B3D /* stack.hpp in Headers */,
+				E25DC5172AA544AE0092CC6F /* TestQueue.hpp in Headers */,
+				E25DC50D2AA544790092CC6F /* NumberNode.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25DC50B2AA544790092CC6F /* NumberNode.cpp in Sources */,
+				E25DC5102AA5449A0092CC6F /* TestStack.cpp in Sources */,
 				E2C9036A2A83E60700412C32 /* main.cpp in Sources */,
+				E25DC51A2AA544C00092CC6F /* TestList.cpp in Sources */,
+				E25DC5242AA544E30092CC6F /* TestAVLTree.cpp in Sources */,
+				E25DC5152AA544AE0092CC6F /* TestQueue.cpp in Sources */,
+				E25DC51F2AA544D10092CC6F /* TestHeap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E25DC50C2AA544790092CC6F /* NumberNode.cpp in Sources */,
+				E25DC5112AA5449A0092CC6F /* TestStack.cpp in Sources */,
 				E2C9036B2A83E79C00412C32 /* main.cpp in Sources */,
+				E25DC51B2AA544C00092CC6F /* TestList.cpp in Sources */,
+				E25DC5252AA544E30092CC6F /* TestAVLTree.cpp in Sources */,
+				E25DC5162AA544AE0092CC6F /* TestQueue.cpp in Sources */,
+				E25DC5202AA544D10092CC6F /* TestHeap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
